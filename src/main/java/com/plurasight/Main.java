@@ -41,6 +41,7 @@ public class Main {
                 break;
             case 2:
                 System.out.println("you have selected the Future calculator");
+                FutureValueCalculator();
                 break;
             case 3:
                 System.out.println("you have selected the Present calculator");
@@ -84,5 +85,45 @@ public class Main {
 
         }
     }
+
+//    ===========================================================================================================
+//    creating the Future calculator
+     public static void FutureValueCalculator(){
+        Scanner InputScanner = new Scanner(System.in);
+        double depositeAmount;
+        float interestRate;
+        int yearNumber;
+
+        System.out.print("Please enter the Deposite Amoount: $ ");
+        depositeAmount = InputScanner.nextDouble();
+
+        System.out.print("Please enter the interest rate: ");
+        interestRate = InputScanner.nextFloat();
+
+        System.out.print("Please the number of the year: ");
+        yearNumber = InputScanner.nextInt();
+         validateFutureValueCalculator(depositeAmount,interestRate,yearNumber);
+
+     }
+
+     public static void validateFutureValueCalculator(double depositeAmount,float interestRate,int yearNumber){
+        if (depositeAmount <= 0 || interestRate <= 0 || yearNumber <= 0){
+            System.out.println("Please enter a valid number.");
+        }
+        else{
+            double rate = interestRate / 100;
+            double futureValueAmount = depositeAmount * Math.pow(1+(rate / 365), 365 * yearNumber);
+            double interestAmount = futureValueAmount - depositeAmount;
+            System.out.printf("Your Future value will $ %f be after %d years \n", futureValueAmount, yearNumber);
+            System.out.printf("Your Interest Amount will be %f after %d",interestAmount,  yearNumber);
+
+        }
+     }
+
+
+
+
+
+
 }
 
