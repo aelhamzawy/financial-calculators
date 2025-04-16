@@ -9,10 +9,7 @@ public class Main {
         getCalculatorType();
 
     }
-
-
-
-
+    
     //  ==========================================================================================
     // creating a function to get the type of the calculator
 
