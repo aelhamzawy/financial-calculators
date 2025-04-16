@@ -2,22 +2,27 @@ package com.plurasight;
 import java.util.Scanner;
 
 public class Main {
-    Scanner InputScanner = new Scanner(System.in);
+
     public static void main(String[] args) {
 
+    // this is the main call out function to check the calculator type
         getCalculatorType();
 
-
-
-
     }
+
+
+
+
     //  ==========================================================================================
     // creating a function to get the type of the calculator
+
     /*
      * 1 --> Mortgage Calculator
      * 2 --> Future Calculator
      * 3 --> Present Calculator
      */
+
+
     public static void getCalculatorType (){
         Scanner InputScanner = new Scanner(System.in);
         // Ask the User to select the calculator type
@@ -30,9 +35,12 @@ public class Main {
 
 
     //  =============================================================================================
+    //  =============================================================================================
+
     /*
         --> creating a function to decide what is the calculator depend on the user input Number
     */
+
     public static void selectTheCalculator(int calculatorTypeNumber){
         switch (calculatorTypeNumber){
             case 1:
@@ -53,7 +61,10 @@ public class Main {
     }
 
     //    ================================================================================================
-//    Mortgage Calculator Function
+    //    ================================================================================================
+
+    //    Mortgage Calculator Function
+
     public static void mortgageCalculator(){
         Scanner InputScanner = new Scanner(System.in);
         double loanAmount;
@@ -67,12 +78,13 @@ public class Main {
         System.out.print("How many years is this loan for? ");
         loanLength = InputScanner.nextFloat();
 
-        mortgageCalculationFunction(loanAmount, interestRate,loanLength);
+        validateMortgageCalculatorValues(loanAmount, interestRate,loanLength);
     };
 
-    //    ================================================================================================
-//    creating a function to do the calculation for the mortgage calculator
-    public static void mortgageCalculationFunction(double loanAmount, double interestRate, float loanLength){
+
+    //    creating a function to do the calculation and validate for the mortgage calculator
+
+    public static void validateMortgageCalculatorValues(double loanAmount, double interestRate, float loanLength){
         if (loanAmount <= 0|| interestRate <= 0|| loanLength <= 0){
             System.out.println("You have entered an invalid number");
         }
@@ -87,8 +99,11 @@ public class Main {
         }
     }
 
-//    ===========================================================================================================
-//    creating the Future calculator
+    //    ===========================================================================================================
+    //    ===========================================================================================================
+
+    //    creating the Future calculator
+
      public static void FutureValueCalculator(){
         Scanner InputScanner = new Scanner(System.in);
         double depositeAmount;
@@ -106,7 +121,10 @@ public class Main {
          validateFutureValueCalculator(depositeAmount,interestRate,yearNumber);
 
      }
-// this function to validate the future value nuber which the user enter
+
+
+    // this function to validate the future value number which the user enter
+
      public static void validateFutureValueCalculator(double depositeAmount,float interestRate,int yearNumber){
         if (depositeAmount <= 0 || interestRate <= 0 || yearNumber <= 0){
             System.out.println("Please enter a valid number.");
@@ -122,8 +140,11 @@ public class Main {
      }
 
 
+    //    ========================================================================================================
+    //    ========================================================================================================
 
-//     creating the present value calculator
+
+    //     creating the present value calculator
     public static void presentValueCalculator(){
         Scanner InputScanner = new Scanner(System.in);
         double monthlyAmount;
@@ -137,12 +158,13 @@ public class Main {
 
          System.out.print("Please enter the Number of years: ");
          numbersOfYear = InputScanner.nextInt();
-        validatePresentValue(monthlyAmount,interestRate,numbersOfYear);
+        validatePresentCalculatorValues(monthlyAmount,interestRate,numbersOfYear);
 
 
     }
-//    create a function to validate the present value amount number
-    public static void validatePresentValue(double monthlyAmount, float interestRate, int numberOfYears){
+
+    //    create a function to validate the present value amount number
+    public static void validatePresentCalculatorValues(double monthlyAmount, float interestRate, int numberOfYears){
         if (monthlyAmount <= 0 || interestRate <= 0 || numberOfYears <= 0 ){
             System.out.println("Please enter a valid amount Number");
         }
