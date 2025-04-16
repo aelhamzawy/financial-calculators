@@ -45,6 +45,7 @@ public class Main {
                 break;
             case 3:
                 System.out.println("you have selected the Present calculator");
+                presentValueCalculator();
                 break;
             default:
                 System.out.println("you have entered an invalid input");
@@ -105,7 +106,7 @@ public class Main {
          validateFutureValueCalculator(depositeAmount,interestRate,yearNumber);
 
      }
-
+// this function to validate the future value nuber which the user enter
      public static void validateFutureValueCalculator(double depositeAmount,float interestRate,int yearNumber){
         if (depositeAmount <= 0 || interestRate <= 0 || yearNumber <= 0){
             System.out.println("Please enter a valid number.");
@@ -122,7 +123,36 @@ public class Main {
 
 
 
+//     creating the present value calculator
+    public static void presentValueCalculator(){
+        Scanner InputScanner = new Scanner(System.in);
+        double monthlyAmount;
+        float interestRate;
+        int numbersOfYear;
+         System.out.print("Please enter your monthly amount: $ ");
+         monthlyAmount = InputScanner.nextDouble();
 
+         System.out.print("Please Enter the interest rate amount: % ");
+         interestRate = InputScanner.nextFloat();
+
+         System.out.print("Please enter the Number of years: ");
+         numbersOfYear = InputScanner.nextInt();
+        validatePresentValue(monthlyAmount,interestRate,numbersOfYear);
+
+
+    }
+//    create a function to validate the present value amount number
+    public static void validatePresentValue(double monthlyAmount, float interestRate, int numberOfYears){
+        if (monthlyAmount <= 0 || interestRate <= 0 || numberOfYears <= 0 ){
+            System.out.println("Please enter a valid amount Number");
+        }
+        else{
+            double monthlyInterestRateAmount = (interestRate / 100) /12;
+            int totalMonths = numberOfYears * 12;
+            double presentValueAmount = monthlyAmount * (1-Math.pow(1+monthlyInterestRateAmount,-totalMonths))/monthlyInterestRateAmount;
+            System.out.println("Your present value is: $" + presentValueAmount);
+        }
+    }
 
 
 }
